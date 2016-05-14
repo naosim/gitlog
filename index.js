@@ -10,6 +10,7 @@ if (require.main === module) {
       gitlog: gitlog,
       getModifiedFiles: tools.getModifiedFiles,
       modifiedFilesFilter: tools.modifiedFilesFilter,
-      calcDifference: tools.calcDifference
+      modifiedFilesFilterByName: tools.modifiedFilesFilterByName,
+      calcDifference: tools.calcDifference,
     };
 }
