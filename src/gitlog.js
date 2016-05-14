@@ -32,7 +32,6 @@ var containsStringInArray = function(array, value) {
 
 var gitlog = function(optionArgs, callback) {
   optionArgs = optionArgs || [];
-  console.log(optionArgs);
   if(containsStringInArray(optionArgs, '--pretty')) {
     throw new Error('cannot use "--pretty" because it is used in gitlog.');
   }
