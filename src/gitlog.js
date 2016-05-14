@@ -62,11 +62,7 @@ var gitlog = function(optionArgs, callback) {
       }
     });
     list.push(format(currentObj));
-    if(callback) {
-      callback(list);
-    } else {
-      console.log(JSON.stringify(list, null, ' '));
-    }
+    callback(list);
   });
 };
 
