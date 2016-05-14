@@ -28,6 +28,7 @@ var format = function(data) {
   };
 }
 var gitlog = function(optionArgs, callback) {
+  optionArgs = optionArgs || [];
   cmd = 'git log ' + optionArgs.join(' ') + ' --numstat --pretty=\'["%an", "%ae", "%cn", "%ce", "%cd", "%H"] %s\''
   exec(cmd, function(err, result) {
     var list = [];
