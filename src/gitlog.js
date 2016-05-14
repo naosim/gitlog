@@ -25,9 +25,22 @@ var format = function(data) {
     modifiedFiles: modifiedFiles,
   };
 }
+
+var containsStringInArray = function(array, value) {
+  return array.filter(function(v) { return v.indexOf(value) != -1; }).length > 0;
+};
+
 var gitlog = function(optionArgs, callback) {
   optionArgs = optionArgs || [];
-  cmd = 'git log ' + optionArgs.join(' ') + ' --numstat --pretty=\'["%an", "%ae", "%cn", "%ce", "%cd", "%H"] %s\''
+  console.log(optionArgs);
+  if(containsStringInArray(optionArgs, '--pretty')) {
+    throw new Error('cannot use "--pretty" because it is used in gitlog.');
+  }
+  if(containsStringInArray(optionArgs, '--numstat')) {
+    throw new Error('cannot use "--numstat" because it is used in gitlog.');
+  }
+
+  var cmd = 'git log ' + optionArgs.join(' ') + ' --numstat --pretty=\'["%an", "%ae", "%cn", "%ce", "%cd", "%H"] %s\''
   exec(cmd, function(err, result) {
     var list = [];
     var currentObj = null;
