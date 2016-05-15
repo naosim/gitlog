@@ -19,7 +19,7 @@ var format = function(data) {
     authorEmail: data.header[1],
     commiterName: data.header[2],
     commiterEmail: data.header[3],
-    commiteDate: data.header[4],
+    commitDate: data.header[4],
     hash: data.header[5],
     subject: data.subject,
     modifiedFiles: modifiedFiles,
